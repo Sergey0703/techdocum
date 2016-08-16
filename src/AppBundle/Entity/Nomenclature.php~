@@ -24,6 +24,11 @@ class Nomenclature
     private $id;
 
     /**
+     * @ORM\Column(type="integer")
+     */
+    private $departid;
+
+    /**
      * @ORM\Column(type="string", length=100)
      */
     private $name;

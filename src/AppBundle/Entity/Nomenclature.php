@@ -24,6 +24,11 @@ class Nomenclature
     private $id;
 
     /**
+     * @ORM\Column(type="integer")
+     */
+    private $departid;
+
+    /**
      * @ORM\Column(type="string", length=100)
      */
     private $name;
@@ -90,5 +95,29 @@ class Nomenclature
     public function getDescription()
     {
         return $this->description;
+    }
+
+    /**
+     * Set departid
+     *
+     * @param integer $departid
+     *
+     * @return Nomenclature
+     */
+    public function setDepartid($departid)
+    {
+        $this->departid = $departid;
+
+        return $this;
+    }
+
+    /**
+     * Get departid
+     *
+     * @return integer
+     */
+    public function getDepartid()
+    {
+        return $this->departid;
     }
 }
