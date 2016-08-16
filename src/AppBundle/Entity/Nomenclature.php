@@ -11,10 +11,10 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="department")
+ * @ORM\Table(name="nomenclature")
  */
 
-class Department
+class Nomenclature
 {
     /**
      * @ORM\Column(type="integer")
