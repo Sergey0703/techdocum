@@ -11,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="department")
+ * @ORM\Table(name="department", indexes={@ORM\Index(name="name", columns={"name"})})
  */
 
 class Department
@@ -29,7 +29,7 @@ class Department
     private $name;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="string", length=255)
      */
     private $description;
 
