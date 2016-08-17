@@ -19,8 +19,8 @@ class Version20160817183512 extends AbstractMigration
         $this->abortIf($this->connection->getDatabasePlatform()->getName() != 'mysql', 'Migration can only be executed safely on \'mysql\'.');
         $this->addSql("CREATE TABLE department
 (id INT(11) AUTO_INCREMENT NOT NULL,
-name VARCHAR(100) NOT NULL,
-description VARCHAR(255) NOT NULL,
+depart_name VARCHAR(100) NOT NULL,
+depart_description VARCHAR(255) NOT NULL,
 PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ENGINE = InnoDB"
         );
 

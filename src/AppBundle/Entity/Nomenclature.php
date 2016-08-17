@@ -11,32 +11,40 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="nomenclature")
+ * @ORM\Table(name="nomenclature",indexes={@ORM\Index(name="namenomenclature", columns={"nomenc_lname"}),@ORM\Index(name="fk_nomenclature_dep_idx", columns={"departid"})})
  */
 
 class Nomenclature
 {
+
     /**
-     * @ORM\Column(type="integer")
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="AUTO")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
 
     /**
-     * @ORM\Column(type="integer")
+     * @var \AppBundle\Entity\Department
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Department")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="name", referencedColumnName="id")
+     * })
      */
     private $departid;
 
     /**
      * @ORM\Column(type="string", length=100)
      */
-    private $name;
+    private $nomencl_name;
 
     /**
-     * @ORM\Column(type="text")
+     * @ORM\Column(type="string", length=255)
      */
-    private $description;
+    private $nomencl_description;
 
 
     /**
@@ -50,51 +58,51 @@ class Nomenclature
     }
 
     /**
-     * Set name
+     * Set nomencl_name
      *
-     * @param string $name
+     * @param string $nomencl_name
      *
      * @return Department
      */
-    public function setName($name)
+    public function setNomencl_name($nomencl_name)
     {
-        $this->name = $name;
+        $this->nomencl_name = $nomencl_name;
 
         return $this;
     }
 
     /**
-     * Get name
+     * Get nomencl_name
      *
      * @return string
      */
-    public function getName()
+    public function getNomencl_name()
     {
-        return $this->name;
+        return $this->nomencl_name;
     }
 
     /**
-     * Set description
+     * Set nomencl_description
      *
-     * @param string $description
+     * @param string $nomencl_description
      *
      * @return Department
      */
-    public function setDescription($description)
+    public function setNomencl_description($nomencl_description)
     {
-        $this->description = $description;
+        $this->nomencl_description = $nomencl_description;
 
         return $this;
     }
 
     /**
-     * Get description
+     * Get nomencl_description
      *
      * @return string
      */
-    public function getDescription()
+    public function getNomencl_description()
     {
-        return $this->description;
+        return $this->nomencl_description;
     }
 
     /**

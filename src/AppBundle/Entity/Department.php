@@ -11,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="department", indexes={@ORM\Index(name="name", columns={"name"})})
+ * @ORM\Table(name="department", indexes={@ORM\Index(name="name", columns={"depart_name"})})
  */
 
 class Department
@@ -26,12 +26,12 @@ class Department
     /**
      * @ORM\Column(type="string", length=100)
      */
-    private $name;
+    private $depart_name;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $description;
+    private $depart_description;
 
 
     /**
@@ -45,50 +45,50 @@ class Department
     }
 
     /**
-     * Set name
+     * Set depart_name
      *
-     * @param string $name
+     * @param string $depart_name
      *
      * @return Department
      */
-    public function setName($name)
+    public function setDepart_name($depart_name)
     {
-        $this->name = $name;
+        $this->depart_name = $depart_name;
 
         return $this;
     }
 
     /**
-     * Get name
+     * Get depart_name
      *
      * @return string
      */
-    public function getName()
+    public function getDepart_name()
     {
-        return $this->name;
+        return $this->depart_name;
     }
 
     /**
-     * Set description
+     * Set depart_description
      *
-     * @param string $description
+     * @param string $depart_description
      *
      * @return Department
      */
-    public function setDescription($description)
+    public function setDepart_description($depart_description)
     {
-        $this->description = $description;
+        $this->depart_description = $depart_description;
 
         return $this;
     }
 
     /**
-     * Get description
+     * Get depart_description
      *
      * @return string
      */
-    public function getDescription()
+    public function getDepart_description()
     {
-        return $this->description;
+        return $this->depart_description;
     }
 }
