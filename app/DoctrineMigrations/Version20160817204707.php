@@ -8,7 +8,7 @@ use Doctrine\DBAL\Schema\Schema;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-class Version20160817183512 extends AbstractMigration
+class Version20160817204707 extends AbstractMigration
 {
     /**
      * @param Schema $schema
@@ -17,16 +17,9 @@ class Version20160817183512 extends AbstractMigration
     {
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() != 'mysql', 'Migration can only be executed safely on \'mysql\'.');
-        $this->addSql("CREATE TABLE department
-(id INT(11) AUTO_INCREMENT NOT NULL,
-name VARCHAR(100) NOT NULL,
-description VARCHAR(255) NOT NULL,
-PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ENGINE = InnoDB"
-        );
 
+        $this->addSql('DROP INDEX name ON department');
     }
-
-
 
     /**
      * @param Schema $schema
@@ -35,6 +28,7 @@ PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ENGINE = Inn
     {
         // this down() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() != 'mysql', 'Migration can only be executed safely on \'mysql\'.');
-        $this->addSql('DROP TABLE `department`');
+
+        $this->addSql('CREATE INDEX name ON department (name)');
     }
 }
