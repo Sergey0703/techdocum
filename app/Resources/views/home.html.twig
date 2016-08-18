@@ -7,7 +7,17 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-        {% block body %}test{% endblock %}
+        {% block body %}test1
+        {% if departments is defined %}
+
+        {% for dep in departments %}
+
+            id="{{ dep.id }}"
+
+        {% endfor %}
+        {% endif %}
+
+        {% endblock %}
         {% block javascripts %}{% endblock %}
     </body>
 </html>

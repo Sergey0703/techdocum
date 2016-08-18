@@ -24,8 +24,16 @@ class DefaultController extends Controller
        // return new Response(
         //    '<html><body>Lucky number: </body></html>'
        // );
-       return $this->render('home.html.twig', array(
-       // 'number' => $number
+        $repository = $this->getDoctrine()->getRepository('AppBundle:Department');
+        $departments = $repository->findAll();
+     //   var_dump($departments);
+
+       // return $this->render('@App/Pages/partners.html.twig', array(
+       //     'partnerId' => $partnerId,
+//        ));
+
+        return $this->render('home.html.twig', array(
+        'departments' => $departments
         ));
     }
 }
