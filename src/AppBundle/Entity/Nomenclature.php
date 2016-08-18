@@ -11,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="nomenclature",indexes={@ORM\Index(name="namenomenclature", columns={"nomenc_lname"}),@ORM\Index(name="fk_nomenclature_dep_idx", columns={"departid"})})
+ * @ORM\Table(name="nomenclature",indexes={@ORM\Index(name="namenomenclature", columns={"nomencl_name"}),@ORM\Index(name="fk_nomenclature_dep_idx", columns={"departid"})})
  */
 
 class Nomenclature

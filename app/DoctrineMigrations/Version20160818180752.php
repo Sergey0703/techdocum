@@ -8,7 +8,7 @@ use Doctrine\DBAL\Schema\Schema;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-class Version20160817213126 extends AbstractMigration
+class Version20160818180752 extends AbstractMigration
 {
     /**
      * @param Schema $schema
@@ -17,11 +17,11 @@ class Version20160817213126 extends AbstractMigration
     {
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() != 'mysql', 'Migration can only be executed safely on \'mysql\'.');
-        $this->addSql("CREATE TABLE nomenclature
+        $this->addSql("CREATE TABLE transfer
 (id INT(11) AUTO_INCREMENT NOT NULL,
+nomenclid INT(11) NOT NULL,
 departid INT(11) NOT NULL,
-nomencl_name VARCHAR(100) NOT NULL,
-nomencl_description VARCHAR(255) NOT NULL,
+transfer_description VARCHAR(255) NOT NULL,
 PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ENGINE = InnoDB"
         );
     }
@@ -32,7 +32,6 @@ PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ENGINE = Inn
     public function down(Schema $schema)
     {
         // this down() migration is auto-generated, please modify it to your needs
-        $this->abortIf($this->connection->getDatabasePlatform()->getName() != 'mysql', 'Migration can only be executed safely on \'mysql\'.');
-        $this->addSql('DROP TABLE `transfer`');
+
     }
 }

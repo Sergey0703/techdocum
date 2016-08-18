@@ -1,0 +1,57 @@
+<?php
+/**
+ * Created by PhpStorm.
+ * User: admins
+ * Date: 8/15/16
+ * Time: 11:14 PM
+ */
+namespace AppBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="transfer",indexes={@ORM\Index(name="namenomenclature", columns={"nomenc_lname"}),@ORM\Index(name="fk_nomenclature_dep_idx", columns={"departid"})})
+ */
+
+class Transfer
+{
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     * @var \AppBundle\Entity\Nomenclature
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Nomenclature")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="nomencl_name", referencedColumnName="id")
+     * })
+     */
+    private $nomenclid;
+
+
+    /**
+     * @var \AppBundle\Entity\Department
+     *
+     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Department")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="depart_name", referencedColumnName="id")
+     * })
+     */
+    private $departid;
+
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $transfer_description;
+
+
+}

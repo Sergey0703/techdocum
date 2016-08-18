@@ -8,7 +8,7 @@ use Doctrine\DBAL\Schema\Schema;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-class Version20160817213126 extends AbstractMigration
+class Version20160818182810 extends AbstractMigration
 {
     /**
      * @param Schema $schema
@@ -17,13 +17,10 @@ class Version20160817213126 extends AbstractMigration
     {
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() != 'mysql', 'Migration can only be executed safely on \'mysql\'.');
-        $this->addSql("CREATE TABLE nomenclature
-(id INT(11) AUTO_INCREMENT NOT NULL,
-departid INT(11) NOT NULL,
-nomencl_name VARCHAR(100) NOT NULL,
-nomencl_description VARCHAR(255) NOT NULL,
-PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ENGINE = InnoDB"
-        );
+        $this->addSql('ALTER TABLE transfer ADD CONSTRAINT fk_transfer_nomencl_tr FOREIGN KEY (nomenclid) REFERENCES nomenclature (id) ON UPDATE CASCADE ON DELETE CASCADE');
+        $this->addSql('ALTER TABLE transfer ADD CONSTRAINT fk_transfer_depart_tr FOREIGN KEY (departid) REFERENCES department (id) ON UPDATE CASCADE ON DELETE CASCADE');
+
+
     }
 
     /**
@@ -33,6 +30,8 @@ PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ENGINE = Inn
     {
         // this down() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() != 'mysql', 'Migration can only be executed safely on \'mysql\'.');
-        $this->addSql('DROP TABLE `transfer`');
+
+        $this->addSql('DROP INDEX fk_transfer_depart_tr ON transfer');
+        $this->addSql('DROP INDEX fk_transfer_nomencl_tr ON transfer');
     }
 }
