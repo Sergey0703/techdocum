@@ -13,7 +13,7 @@
 
         {% for nom in nomenclature %}
 
-            id="{{ nom.id }}"
+        id="{{ nom.id }}" name="{{ nom.nomencl_name }}" depart="{{ nom.departid.depart_name }}"
 
         {% endfor %}
         {% endif %}

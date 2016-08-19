@@ -33,9 +33,15 @@ class Nomenclature
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="departid", referencedColumnName="id")
      * })
-     */
 
+/*
+    /**
+     * @var \AppBundle\Entity\Department
+     *
+     * @ORM\OneToOne(targetEntity="AppBundle\Entity\Department", mappedBy="id", fetch="EXTRA_LAZY")
+     */
     private $departid;
+
 
     /**
      * @ORM\Column(type="string", length=100)

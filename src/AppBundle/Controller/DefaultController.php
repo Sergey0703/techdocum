@@ -46,7 +46,7 @@ class DefaultController extends Controller
         // );
         $repositoryNomencl = $this->getDoctrine()->getRepository('AppBundle:Nomenclature');
         $nomenclature= $repositoryNomencl->findAll();
-        //   var_dump($departments);
+        //   var_dump($nomenclature);
 
         // return $this->render('@App/Pages/partners.html.twig', array(
         //     'partnerId' => $partnerId,
