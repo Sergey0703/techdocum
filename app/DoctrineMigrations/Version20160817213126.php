@@ -33,6 +33,6 @@ PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ENGINE = Inn
     {
         // this down() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() != 'mysql', 'Migration can only be executed safely on \'mysql\'.');
-        $this->addSql('DROP TABLE `transfer`');
+        $this->addSql('DROP TABLE `nomenclature`');
     }
 }

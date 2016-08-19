@@ -31,9 +31,10 @@ class Nomenclature
      *
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Department")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="name", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="departid", referencedColumnName="id")
      * })
      */
+
     private $departid;
 
     /**

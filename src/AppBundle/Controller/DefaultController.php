@@ -17,10 +17,7 @@ class DefaultController extends Controller
      */
      public function homeAction(Request $request)
     {
-        // replace this example code with whatever you need
-        //return $this->render('default/index.html.twig', [
-        //    'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..'),
-        //]);
+
        // return new Response(
         //    '<html><body>Lucky number: </body></html>'
        // );
@@ -36,4 +33,30 @@ class DefaultController extends Controller
         'departments' => $departments
         ));
     }
+
+    /**
+     * @Route("/nomenclature", name="nomenclature")
+     * @Method({"GET", "POST"})
+     */
+    public function nomenclatureAction(Request $request)
+    {
+
+        // return new Response(
+        //    '<html><body>Lucky number: </body></html>'
+        // );
+        $repositoryNomencl = $this->getDoctrine()->getRepository('AppBundle:Nomenclature');
+        $nomenclature= $repositoryNomencl->findAll();
+        //   var_dump($departments);
+
+        // return $this->render('@App/Pages/partners.html.twig', array(
+        //     'partnerId' => $partnerId,
+//        ));
+
+        return $this->render('nomencl.html.twig', array(
+            'nomenclature' => $nomenclature
+        ));
+    }
+
+
+
 }

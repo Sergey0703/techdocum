@@ -2,18 +2,18 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}Nomenclature!{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
         {% block body %}
             <a href="nomenclature">Nomenclature</a>
-        {% if departments is defined %}
+        {% if nomenclature is defined %}
 
-        {% for dep in departments %}
+        {% for nom in nomenclature %}
 
-            id="{{ dep.id }}"
+            id="{{ nom.id }}"
 
         {% endfor %}
         {% endif %}
