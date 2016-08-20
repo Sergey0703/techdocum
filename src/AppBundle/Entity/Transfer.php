@@ -31,7 +31,7 @@ class Transfer
      *
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Nomenclature")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="nomencl_name", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="nomenclid", referencedColumnName="id")
      * })
      */
     private $nomenclid;
@@ -42,11 +42,10 @@ class Transfer
      *
      * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Department")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="depart_name", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="departid", referencedColumnName="id")
      * })
      */
     private $departid;
-
 
     /**
      * @ORM\Column(type="string", length=255)

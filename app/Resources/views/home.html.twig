@@ -10,13 +10,13 @@
         {% block body %}
             <a href="nomenclature">Nomenclature</a>  <a href="departments">Departments</a>
             {% if transfers is defined %}
-<div>
+        <div>
         {% for tr in transfers %}
 
-            id="{{ tr.id }}"
+            id="{{ tr.id }}" nomencl="{{ tr.nomenclid.nomencl_name }}" depart={{ tr.departid.depart_name }}
 
         {% endfor %}
- </div>
+        </div>
         {% endif %}
 
         {% endblock %}
