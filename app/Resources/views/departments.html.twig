@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+        {% block body %}
+            <a href="transfers">Transfers</a>  <a href="nomenclature">Nomenclature</a>
+        {% if departments is defined %}
+        <div>
+<table>
+        {% for dep in departments %}
+<tr>
+            id="{{ dep.id }}" name= "{{ dep.depart_name }}"
+</tr>
+        {% endfor %}
+ </table>
+            </div>
+        {% endif %}
+
+        {% endblock %}
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

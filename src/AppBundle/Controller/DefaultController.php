@@ -47,24 +47,38 @@ class DefaultController extends Controller
     /**
      * @Route("/departments", name="departments")
      * @Method({"GET", "POST"})
+     * @param Request $request
+     * @Template("departments.html.twig")
+     * @return Response
      */
     public function departmentsAction(Request $request)
     {
 
-        // return new Response(
-        //    '<html><body>Lucky number: </body></html>'
-        // );
+
         $repository = $this->getDoctrine()->getRepository('AppBundle:Department');
         $departments = $repository->findAll();
         //   var_dump($departments);
+      //  $reviewEntity=new Comment();
+     //   $reviewEntity->setOrderHash($orderHash);
+     //   $form=$this->createForm(LeaveReview::class, $reviewEntity);
+     //   $form->handleRequest($request);
+     //   $form = $this->createForm(ContactsType::class);
+//var_dump($_SERVER['SERVER_NAME']);
 
-        // return $this->render('@App/Pages/partners.html.twig', array(
-        //     'partnerId' => $partnerId,
-//        ));
+        if($request->getMethod()=='POST'){
+      //  if ($form->isSubmitted() && $form->isValid() && $request->isMethod('POST')) {
+     //     $reviewEntity->setApartmentId($apartment);
+       //     $reviewEntity->setDate();
+       //     $reviewEntity->setClientId($result->getClientId());
+       //     $em->persist($reviewEntity);
+       //     $em->flush();
+        }
 
-        return $this->render('department.html.twig', array(
-            'departments' => $departments
-        ));
+     //   return $this->render('department.html.twig', array(
+     //       'departments' => $departments
+     //   ));
+        $outputData['id']=1;
+        return $outputData;
     }
 
 
