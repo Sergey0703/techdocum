@@ -8,15 +8,17 @@
     </head>
     <body>
         {% block body %}
-            <a href="nomenclature">Nomenclature</a>  <a href="departments">Departments</a>
-            {% if transfers is defined %}
-<div>
-        {% for tr in transfers %}
-
-            id="{{ tr.id }}"
-
+            <a href="transfers">Transfers</a>  <a href="nomenclature">Nomenclature</a>
+        {% if departments is defined %}
+        <div>
+<table>
+        {% for dep in departments %}
+<tr>
+            id="{{ dep.id }}" name= "{{ dep.depart_name }}"
+</tr>
         {% endfor %}
- </div>
+ </table>
+            </div>
         {% endif %}
 
         {% endblock %}

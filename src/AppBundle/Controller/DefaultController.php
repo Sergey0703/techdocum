@@ -8,21 +8,22 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Sensio\Bundle\FrameworkExtraBundle\Templating;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 class DefaultController extends Controller
 {
     /**
-     * @Route("/", name="home")
+     * @Route("/transfers", name="home")
      * @Method({"GET", "POST"})
      */
-     public function homeAction(Request $request)
+     public function homepageAction(Request $request)
     {
 
        // return new Response(
         //    '<html><body>Lucky number: </body></html>'
        // );
-        $repository = $this->getDoctrine()->getRepository('AppBundle:Department');
-        $departments = $repository->findAll();
+        $repository = $this->getDoctrine()->getRepository('AppBundle:Transfer');
+        $transfers = $repository->findAll();
      //   var_dump($departments);
 
        // return $this->render('@App/Pages/partners.html.twig', array(
@@ -30,9 +31,42 @@ class DefaultController extends Controller
 //        ));
 
         return $this->render('home.html.twig', array(
-        'departments' => $departments
+        'transfers' => $transfers
         ));
     }
+
+    /**
+     * @Route("/")
+     * @Method({"GET","POST"})
+     */
+    public function homeAction(){
+        return $this->redirectToRoute("home");
+    }
+
+
+    /**
+     * @Route("/departments", name="departments")
+     * @Method({"GET", "POST"})
+     */
+    public function departmentsAction(Request $request)
+    {
+
+        // return new Response(
+        //    '<html><body>Lucky number: </body></html>'
+        // );
+        $repository = $this->getDoctrine()->getRepository('AppBundle:Department');
+        $departments = $repository->findAll();
+        //   var_dump($departments);
+
+        // return $this->render('@App/Pages/partners.html.twig', array(
+        //     'partnerId' => $partnerId,
+//        ));
+
+        return $this->render('department.html.twig', array(
+            'departments' => $departments
+        ));
+    }
+
 
     /**
      * @Route("/nomenclature", name="nomenclature")

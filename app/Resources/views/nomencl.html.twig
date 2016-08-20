@@ -8,14 +8,16 @@
     </head>
     <body>
         {% block body %}
-            <a href="nomenclature">Nomenclature</a>
+            <a href="transfers">Transfers</a>  <a href="departments">Departments</a>
         {% if nomenclature is defined %}
-
+            <div>
+<table>
         {% for nom in nomenclature %}
-
+<tr>
         id="{{ nom.id }}" name="{{ nom.nomencl_name }}" depart="{{ nom.departid.depart_name }}"
-
+</tr>
         {% endfor %}
+   </table> </div>
         {% endif %}
 
         {% endblock %}
