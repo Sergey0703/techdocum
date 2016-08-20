@@ -9,6 +9,7 @@
     <body>
         {% block body %}
             <a href="transfers">Transfers</a>  <a href="nomenclature">Nomenclature</a>
+            {{ form_widget(form) }}
         {% if departments is defined %}
         <div>
 <table>

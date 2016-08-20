@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Sensio\Bundle\FrameworkExtraBundle\Templating;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use AppBundle\Form\DepartForm;
 
 class DefaultController extends Controller
 {
@@ -58,11 +59,11 @@ class DefaultController extends Controller
         $repository = $this->getDoctrine()->getRepository('AppBundle:Department');
         $departments = $repository->findAll();
         //   var_dump($departments);
-      //  $reviewEntity=new Comment();
+        //      //  $reviewEntity=new Comment();
      //   $reviewEntity->setOrderHash($orderHash);
      //   $form=$this->createForm(LeaveReview::class, $reviewEntity);
      //   $form->handleRequest($request);
-     //   $form = $this->createForm(ContactsType::class);
+        $form = $this->createForm(DepartForm::class);
 //var_dump($_SERVER['SERVER_NAME']);
 
         if($request->getMethod()=='POST'){
@@ -77,7 +78,8 @@ class DefaultController extends Controller
      //   return $this->render('department.html.twig', array(
      //       'departments' => $departments
      //   ));
-        $outputData['id']=1;
+     //   $outputData['id']=1;
+        $outputData['form']= $form->createView();
         return $outputData;
     }
 
