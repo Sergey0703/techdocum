@@ -13,6 +13,8 @@ use Symfony\Component\Validator\Constraints\GreaterThan;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\LessThanOrEqual;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 
 /**
  * Class DepartForm
@@ -29,36 +31,15 @@ class DepartForm extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('photoVote', ChoiceType::class, array(
-                'choices' => array(
-                    'Apartment photos completely the same as in reality' => 1,
-                    'Apartment photos very likely as in reality' => 2,
-                    'Apartment photos NOT likely as in reality' => 3,
-                ),
-                'expanded' => true,
-             //   'disabled' => $options['is_edit'],
-            ))
-            ->add('staffVote', HiddenType::class, array(
-                'constraints' => array(
-                    new GreaterThan(array(
-                        'value' => 0,
-                    )),
-                    new LessThanOrEqual(array(
-                        'value' => 10,
-                    ))
-                ),
+            ->add('depart_name', TextType::class)
+            ->add('depart_description', TextType::class)
+            ->add('Subm', SubmitType::class, array(
+                'label' => 'Save'
                // 'disabled' => $options['is_edit'],
-                'attr' => array(
-                    'data-name' => 'rating1-value',
-                ),
-            ))
-            ->add('leaveReview', SubmitType::class, array(
-                'label' => 'Leave Review',
-               // 'disabled' => $options['is_edit'],
-                'attr' => array(
-                    'class' => 'bft',
-                ),
-            ));
+               // 'attr' => array(
+               //     'class' => 'bft',
+                )
+            );
 
     }
 
