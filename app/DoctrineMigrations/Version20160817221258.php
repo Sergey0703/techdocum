@@ -18,7 +18,7 @@ class Version20160817221258 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() != 'mysql', 'Migration can only be executed safely on \'mysql\'.');
         $this->addSql('ALTER TABLE nomenclature ADD CONSTRAINT fk_nomenclature_dep_idx FOREIGN KEY (departid) REFERENCES department (id) ON UPDATE CASCADE ON DELETE CASCADE');
-        $this->addSql('CREATE INDEX namenomenclature ON nomenclature (nomencl_name)');
+        $this->addSql('CREATE INDEX namenomenclature ON nomenclature (nomenclname)');
 
     }
 

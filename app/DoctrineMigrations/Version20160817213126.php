@@ -20,8 +20,8 @@ class Version20160817213126 extends AbstractMigration
         $this->addSql("CREATE TABLE nomenclature
 (id INT(11) AUTO_INCREMENT NOT NULL,
 departid INT(11) NOT NULL,
-nomencl_name VARCHAR(100) NOT NULL,
-nomencl_description VARCHAR(255) NOT NULL,
+nomenclname VARCHAR(100) NOT NULL,
+nomencldescription VARCHAR(255) NOT NULL,
 PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ENGINE = InnoDB"
         );
     }

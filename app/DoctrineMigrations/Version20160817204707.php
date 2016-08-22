@@ -17,7 +17,7 @@ class Version20160817204707 extends AbstractMigration
     {
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() != 'mysql', 'Migration can only be executed safely on \'mysql\'.');
-        $this->addSql('CREATE INDEX name ON department (depart_name)');
+        $this->addSql('CREATE INDEX name ON department (departname)');
 
     }
 

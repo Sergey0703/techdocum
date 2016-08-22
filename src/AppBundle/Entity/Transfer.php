@@ -50,7 +50,7 @@ class Transfer
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $transfer_description;
+    private $transferdescription;
 
 
 
@@ -73,7 +73,7 @@ class Transfer
      */
     public function setTransferDescription($transferDescription)
     {
-        $this->transfer_description = $transferDescription;
+        $this->transferdescription = $transferDescription;
 
         return $this;
     }
@@ -85,7 +85,7 @@ class Transfer
      */
     public function getTransferDescription()
     {
-        return $this->transfer_description;
+        return $this->transferdescription;
     }
 
     /**

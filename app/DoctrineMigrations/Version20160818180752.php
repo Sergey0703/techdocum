@@ -21,7 +21,7 @@ class Version20160818180752 extends AbstractMigration
 (id INT(11) AUTO_INCREMENT NOT NULL,
 nomenclid INT(11) NOT NULL,
 departid INT(11) NOT NULL,
-transfer_description VARCHAR(255) NOT NULL,
+transferdescription VARCHAR(255) NOT NULL,
 PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ENGINE = InnoDB"
         );
     }

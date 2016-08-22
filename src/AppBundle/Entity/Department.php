@@ -11,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="department", indexes={@ORM\Index(name="name", columns={"depart_name"})})
+ * @ORM\Table(name="department", indexes={@ORM\Index(name="name", columns={"departname"})})
  */
 
 class Department
@@ -26,12 +26,12 @@ class Department
     /**
      * @ORM\Column(type="string", length=100)
      */
-    private $depart_name;
+    private $departname;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $depart_description;
+    private $departdescription;
 
 
     /**
@@ -45,50 +45,50 @@ class Department
     }
 
     /**
-     * Set depart_name
+     * Set departname
      *
-     * @param string $depart_name
+     * @param string $departname
      *
      * @return Department
      */
-    public function setDepart_name($depart_name)
+    public function setDepartname($departname)
     {
-        $this->depart_name = $depart_name;
+        $this->departname = $departname;
 
         return $this;
     }
 
     /**
-     * Get depart_name
+     * Get departname
      *
      * @return string
      */
-    public function getDepart_name()
+    public function getDepartname()
     {
-        return $this->depart_name;
+        return $this->departname;
     }
 
     /**
-     * Set depart_description
+     * Set departdescription
      *
-     * @param string $depart_description
+     * @param string $departdescription
      *
      * @return Department
      */
-    public function setDepart_description($depart_description)
+    public function setDepartdescription($departdescription)
     {
-        $this->depart_description = $depart_description;
+        $this->departdescription = $departdescription;
 
         return $this;
     }
 
     /**
-     * Get depart_description
+     * Get departdescription
      *
      * @return string
      */
-    public function getDepart_description()
+    public function getDepartdescription()
     {
-        return $this->depart_description;
+        return $this->departdescription;
     }
 }

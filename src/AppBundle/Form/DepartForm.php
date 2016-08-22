@@ -31,8 +31,9 @@ class DepartForm extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('depart_name', TextType::class)
-            ->add('depart_description', TextType::class)
+            ->add('id', HiddenType::class)
+            ->add('departname', TextType::class)
+            ->add('departdescription', TextType::class)
             ->add('Subm', SubmitType::class, array(
                 'label' => 'Save'
                // 'disabled' => $options['is_edit'],
