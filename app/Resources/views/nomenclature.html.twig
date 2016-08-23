@@ -8,13 +8,16 @@
     </head>
     <body>
         {% block body %}
-            <a href="transfers">Transfers</a>  <a href="departments">Departments</a>
-        {% if nomenclature is defined %}
+            <a href="/transfers">Transfers</a>  <a href="/departments">Departments</a>
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            {{ form_end(form) }}
+            {% if nomenclature is defined %}
             <div>
 <table>
         {% for nom in nomenclature %}
 <tr>
-        id="{{ nom.id }}" name="{{ nom.nomenclname }}" depart="{{ nom.departid.departname }}"
+    <td><a href=/nomenclature/{{ nom.id }}>id="{{ nom.id }}" <td>name= "{{ nom.nomenclname }}" </a><td>desc="{{ nom.nomencldescription }}" <td> depart="{{ nom.departid.departname }}"
 </tr>
         {% endfor %}
    </table> </div>
