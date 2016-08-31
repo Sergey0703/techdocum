@@ -2,6 +2,8 @@
 
 namespace AppBundle\Form;
 
+use AppBundle\Entity\Department;
+use AppBundle\Entity\Nomenclature;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
@@ -34,7 +36,8 @@ class NomenclatureForm extends AbstractType
           //  ->add('id', HiddenType::class)
             ->add('nomenclname', TextType::class)
             ->add('nomencldescription', TextType::class)
-          //  ->add('departid', TextType::class)
+           // ->add('departid', Department::class)
+
             ->add('Subm', SubmitType::class, array(
                 'label' => 'Save'
                // 'disabled' => $options['is_edit'],
